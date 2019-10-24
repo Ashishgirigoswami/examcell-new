@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+<div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div id="content">
+               <h1 id="tc1">EXAMINATION CELL</h1>
+                <h3 id="tc">Don’t think about tomorrow. Think about the task at hand.</h3>
+                 </div>
+               </div>
+              </div>
+  <main>
+    {% if messages %}
+      {% for message in messages %}
+         <div class="alert alert-{{message.tags}}">
+           {{ message }}
+         </div>
+      {% endfor %}
+    {% endif %}
+
+    {% block content %}
+    {% endblock %}
+
+  </main>
+  <li><a class="nav-item nav-link" href="{%url 'aboutus' %}">About US</a></li>
+  <li><a class="nav-item nav-link" href="{%url 'adminlogin' %}">Admin</a></li>
+  <li><a class="nav-item nav-link" href="{%url 'login' %}">Student</a></li>
+  <li><a class="nav-item nav-link" href="{%url 'login' %}">Faculty</a></li>
+
+
+
+</body>
+</html>
