@@ -1,0 +1,18 @@
+/********** gallery part css here **********/
+.gallery_part{
+    .single_gallery_part{
+        margin-bottom: 30px;
+        border-radius: 5px;
+        display: block;
+    }
+    img{
+        width: 100%;
+    }
+    .btn_2{
+        margin-top: 50px;
+        @media #{$tab}{
+            margin-top: 20px;
+        }
+    }
+}
+/********** gallery part css end **********/

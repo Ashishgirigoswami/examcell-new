@@ -33,20 +33,22 @@ from django.urls import include,path
 from django.conf.urls import url
 from django.views.generic.base import TemplateView
 from django.contrib.auth import views as auth_views
-from users import  views as v
+from users import  adminview as av,studentview as sv,facultyview as fv,views as v
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('django.contrib.auth.urls')),
     path('home', TemplateView.as_view(template_name='home.html'), name='home'),
-    path('', TemplateView.as_view(template_name='base.html'), name='base'),
-    path('aboutus/', TemplateView.as_view(template_name='aboutus.html'), name='aboutus'),
+    path('', TemplateView.as_view(template_name='index.html'), name='base'),
+    path('aboutus/', TemplateView.as_view(template_name='about.html'), name='aboutus'),
     path('register/',v.register, name='register'),
     path('Dashboard/',v.Dashboard, name='Dashboard'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         v.activate, name='activate'),
     path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
 
-    path('adminlogin/', auth_views.LoginView.as_view(template_name='users/adminlogin.html'), name='adminlogin'),
+    path('admin login/', av.login_user, name='adminloginform'),
+    path('student login/', sv.login_user, name='studentloginform'),
+    path('faculty login/', fv.login_user, name='facultyloginform'),
     path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
     # new0
 ]

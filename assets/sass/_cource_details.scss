@@ -1,0 +1,38 @@
+/******** cource details css here *********/
+.cource_details{
+    .single_cource_details{
+        margin-bottom: 60px;
+        @media #{$tab}{
+            margin-bottom: 40px;
+        }
+        h4{
+            font-size: 21px;
+            display: block;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 16px;
+            margin-bottom: 45px;
+            @media #{$tab}{
+                margin-bottom: 25px;
+            }
+        }
+        p{
+            color: $p_color;
+        }
+    }
+    .cource_details_sidebar{
+        .single_cource_details_sidebar{
+            background-color: #fafafa;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            margin-bottom: 10px;
+            color: $p_color;
+        }
+    }
+    .btn_1{
+        display: block;
+        text-align: center;
+    }
+}
+/******** cource details css end *********/

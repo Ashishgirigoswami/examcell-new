@@ -1,0 +1,47 @@
+/******* popular cource css here *******/
+.popular_cource{
+    @media #{$tab}{
+        padding: 70px 0 40px;
+    }
+    .single_popular_cource{
+        @media #{$tab}{
+            margin-bottom: 30px;
+        }
+        img{
+            width: 100%;
+        }
+        h3{
+            color: $black_color;
+            font-size: 21px;
+            font-weight: 400;
+            display: block;
+            margin: 38px 0 17px;
+            @media #{$tab}{
+                margin: 20px 0 10px;
+                font-size: 18px;
+            }
+            @media #{$medium_device}{
+                margin: 20px 0 10px;
+                font-size: 18px;
+            }
+            span{
+                color: $base_color;
+                float: right;
+            }
+        }
+        .btn_2{
+            margin-top: 42px;
+            @media #{$tab}{
+                margin-top: 20px;
+            }
+            @media #{$medium_device}{
+                margin-top: 25px;
+            }
+        }
+    }
+}
+.single_page_popular_cource{
+    .single_popular_cource{
+        margin-bottom: 30px;
+    }
+}

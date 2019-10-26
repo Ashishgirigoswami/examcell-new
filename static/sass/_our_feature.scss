@@ -1,0 +1,18 @@
+/************** our feature css here **************/
+.our_feature{
+    @media #{$tab}{
+        padding: 70px 0 40px;
+    }
+    .single_feature{
+        @media #{$tab}{
+            margin-bottom: 30px;
+        }
+        h4{
+            margin: 42px 0 16px;
+            @media #{$tab}{
+                margin: 20px 0 15px;
+            }
+        }
+    }
+}
+/************** our feature css end **************/

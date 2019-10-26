@@ -1,0 +1,38 @@
+/********** become member css here ***********/
+.become_member{
+    background-image: url(../img/become_member_bg.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    &:after{
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        background-color: $black_color;
+        z-index: -1;
+        opacity: .5;
+        width: 100%;
+        height: 100%;
+    }
+    h2{
+        font-size: 48px;
+        color: $white_color;
+        @media #{$tab}{
+            font-size: 25px;
+            line-height: 35px;
+        }
+    }
+    p{
+        font-size: 16px;
+        margin: 13px 0 43px;
+        @media #{$tab}{
+            line-height: 25px;
+            margin: 13px 0 10px;
+        }
+    }
+}
+/********** become member css end ***********/

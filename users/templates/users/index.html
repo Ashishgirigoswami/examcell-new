@@ -1,0 +1,242 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Examcell</title>
+    <link rel="icon" href="{% static 'images/bg-02.png'%}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+    <!-- nice select CSS -->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+
+<body>
+    <!--::header part start::-->
+    <header class="main_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="{% static 'img\OKPC.png'%}" alt="logo"> </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                            id="navbarSupportedContent">
+							
+                            <ul class="navbar-nav align-items-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'base' %}">Home</a>
+                                </li>
+								
+								 <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'adminloginform' %}">Admin</a>
+                                </li>
+								
+								<li class="nav-item">
+                                    <a class="nav-link" href="{%url 'studentloginform' %}">Student</a>
+                                </li>
+								
+								<li class="nav-item">
+                                    <a class="nav-link" href="{%url 'facultyloginform' %}">faculty</a>
+                                </li>
+								
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'aboutus' %}">About</a>
+                                </li>
+								
+
+                            </ul>
+                        </div>
+                        
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header part end-->
+
+    <!-- banner part start-->
+    <section class="banner_part">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="banner_text">
+                        <div class="banner_text_iner">
+                            <p>Working hard in order to get perfect engineer.</p>
+                            <h1>ANAND-ICE</h1>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- banner part start-->
+
+
+
+   
+
+
+    <!-- about part here-->
+    <section class="about_part padding_bottom overflow-hidden">
+        <div class="container-fluid p-lg-0">
+            <div class="row align-items-center justify-content-end">
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="about_text">
+                        <h2>We are ANANDITE. A Dedicated EDUCATION Center Since 2000</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                        <a href="#" class="btn_1">Browse Services</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1 col-md-6">
+                    <div class="about_img">
+                        <img src="{% static 'img/about_img.JPG'%}" alt="#">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about part end-->
+
+    <!-- our feature part start-->
+    <section class="client_review padding_bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section_tittle text-center">
+                        <h2>CREATOR TEAM</h2>
+                        <p>WE BELIEVE IN EFFICIENCY WORK.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="client_review_iner owl-carousel">
+                        <div class="client_review_single">
+                            <img src="{% static 'img/client_1.jpg'%}" alt="">
+                            <h4>ER.ANUBHAV SAXENA</h4>
+                            <span>MENTOR</span>
+                        </div>
+                        <div class="client_review_single">
+                            <img src="{% static 'img/client_2.jpg'%}" alt="">
+                            <h4>ASHISH GIRI</h4>
+                            <span>DEVELOPER</span>
+                       </div>
+                        <div class="client_review_single">
+                            <img src="{% static 'img/client_3.png'%}" alt="">
+                            <h4>PANKAJ SIR</h4>
+                            <span>DEVELOPER</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- our feature part end-->
+
+  
+
+    <!-- footer part start-->
+    <footer class="footer-area section_padding">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-sm-6 col-lg-3">
+                    <div class="single-footer-widget footer_1">
+                        <h4>About Us</h4>
+                        <p>ONE OF THE BEST COLLEGE IN JAIPUR.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-footer-widget footer_2">
+                        <h4>Contact us</h4>
+                        <div class="contact_info">
+                            <p>KANOTA , JAIPUR</p>
+                            <h2>0123-1234567</h2>
+                            <h2>0123-1234567</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-8 col-lg-5">
+                    <div class="single-footer-widget footer_2">
+                        <h4>Newsletter</h4>
+                        <p>Stay updated with our latest trends Seed heaven so said place winged over given forth fruit.
+                        </p>
+                         <div id="mc_embed_signup">
+                            <form target="_blank"
+                                action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                                method="get" class="subscribe_form relative mail_part">
+                                <input type="email" name="email" id="newsletter-form-email" placeholder="Email Address"
+                                    class="placeholder hide-on-focus" onfocus="this.placeholder = ''"
+                                    onblur="this.placeholder = ' Email Address '">
+                                <button type="submit" name="submit" id="newsletter-submit"
+                                    class="email_icon newsletter-submit button-contactForm">Subscribe<i class="ti-arrow-right"></i></button>
+                                <div class="mt-10 info"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="copyright_part_text">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="social_icon">
+                                    <a href="#"> <i class="ti-facebook"></i> </a>
+                                    <a href="#"> <i class="ti-twitter-alt"></i> </a>
+                                    <a href="#"> <i class="ti-instagram"></i> </a>
+                                    <a href="#"> <i class="ti-skype"></i> </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer part end-->
+
+    <!-- jquery plugins here-->
+    <!-- jquery -->
+    <script src="js/jquery-1.12.1.min.js"></script>
+    <!-- popper js -->
+    <script src="js/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- easing js -->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <!-- particles js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- contact js -->
+    <script src="js/contact.js"></script>
+    <script src="js/jquery.form.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/mail-script.js"></script>
+    <script src="js/jquery.ajaxchimp.min.js"></script>
+    <!-- custom js -->
+    <script src="js/custom.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+/********** shedule part css here **********/
+.shedule_part{
+    h2{
+        font-size: 48px;
+        margin-bottom: 20px;
+        @media #{$tab}{
+            font-size: 25px;
+            margin: 20px 0 10px;
+        }
+        @media #{$medium_device}{
+            font-size: 30px;
+            margin: 20px 0 10px;
+        }
+    }
+    table{
+        margin-top: 50px;
+        @media #{$tab}{
+            margin-top: 30px;
+        }
+        @media #{$medium_device}{
+            margin-top: 30px;
+        }
+        th, td{
+            padding: 30px 35px;
+            line-height: 14px;
+            color: $p_color;
+            font-weight: 300;
+            font-size: 14px;
+            border: 1px solid #eeeeee;
+            @media #{$tab}{
+                padding: 20px;
+            }
+            @media #{$small_mobile}{
+                padding: 8px;
+            }
+            @media #{$medium_device}{
+                padding: 20px;
+            }
+        }
+        thead{
+            background-color: $base_color;
+            th{
+                border: 0px solid transparent;
+                text-transform: capitalize;
+                color: $white_color;
+                padding: 30px 35px;
+                line-height: 14px;
+                font-weight: 400;
+                @media #{$tab}{
+                    padding: 20px;
+                } 
+                @media #{$small_mobile}{
+                    padding: 8px;
+                }
+                @media #{$medium_device}{
+                    padding: 20px;
+                }
+            }
+        }
+    }
+}
+.single_page_shedule{
+    table{
+        padding: 0;
+        margin: 0;
+    }
+}
+/********** shedule part css end **********/

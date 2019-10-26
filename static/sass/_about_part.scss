@@ -1,0 +1,51 @@
+/********** about part css here *********/
+.about_part{
+    .about_text{
+        padding-left: 10%;
+        @media #{$tab}{
+            padding-left: 0;
+        }
+        @media #{$tab}{
+            padding-left: 0;
+        }
+        h2{
+            font-size: 48px;
+            line-height: 60px;
+            margin-bottom: 40px;
+            @media #{$tab}{
+                font-size: 25px;
+                margin-bottom: 20px;
+                line-height: 40px;
+            }
+            @media #{$medium_device}{
+                font-size: 30px;
+                margin-bottom: 20px;
+                line-height: 40px;
+            }
+        }
+        p{
+            margin-bottom: 30px;
+            @media #{$tab}{
+                margin-bottom: 20px;
+            }
+            @media #{$medium_device}{
+                margin-bottom: 20px;
+            }
+        }
+        .btn_1{
+            margin-top: 44px;
+            @media #{$tab}{
+                margin-top: 0;
+            }
+            @media #{$medium_device}{
+                margin-top: 20px;
+            }
+        }
+    }
+    .about_img{
+        @media #{$tab}{
+            margin-top: 30px;
+        }
+    }
+}
+/********** about part css end *********/
