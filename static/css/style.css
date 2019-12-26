@@ -596,7 +596,7 @@ ul {
 /* line 136, /Applications/MAMP/htdocs/palash/cl/august/200 FitFloss Fitness/fitfloss html/sass/_button.scss */
 .button-contactForm {
   color: #fff;
-  border-color: #edeff2;
+  border-color: #FFA500;
   padding: 12px 25px;
 }
 
@@ -2036,7 +2036,7 @@ ul {
 /* line 39, /Applications/MAMP/htdocs/palash/cl/august/200 FitFloss Fitness/fitfloss html/sass/_single_blog.scss */
 .single_blog_post .single_blog .single_appartment_content .list-unstyled li a {
   margin-right: 8px;
-  color: #999999;
+  color: #FFA500;
 }
 
 /**************menu part start*****************/
@@ -2197,7 +2197,7 @@ ul {
   }
   /* line 121, /Applications/MAMP/htdocs/palash/cl/august/200 FitFloss Fitness/fitfloss html/sass/_menu.scss */
   .navbar-light .navbar-toggler {
-    border-color: transparent;
+    border-color: red ;
   }
   /* line 124, /Applications/MAMP/htdocs/palash/cl/august/200 FitFloss Fitness/fitfloss html/sass/_menu.scss */
   .navbar-collapse {

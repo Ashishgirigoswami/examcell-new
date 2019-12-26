@@ -11,27 +11,29 @@ from django.http import *
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response,redirect
-from .forms import CustomUserCreationForm,ProfileForm
+from .forms import CustomUserCreationForm,edit_studentprofile
 from django.contrib.auth.models import Group
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import PasswordChangeForm,PasswordResetForm
 from django.core.mail import EmailMessage
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model,update_session_auth_hash
 
 User = get_user_model()
 
 def register(request):
-    if request.method=='POST':
+    if request.POST:
         form= CustomUserCreationForm(request.POST)
-        profileForm = ProfileForm(request.POST)
+
         if form.is_valid():
 
             user=form.save(commit=False)
             user.is_active = False
             user.save()
+            group = Group.objects.get(name='student')
+            user.groups.add(group)
             current_site = get_current_site(request)
             mail_subject = 'Activate your blog account.'
             message = render_to_string('users/accountactivate.html', {
@@ -46,21 +48,16 @@ def register(request):
             )
             email.send()
             return HttpResponse('Please confirm your email address to complete the registration')
-            #profileform.save()
-            group = Group.objects.get(name='student')
+            group = Group.objects.get(name='faculty')
             user.groups.add(group)
-            #username=form.cleaned_data.get('username')
             messages.success(request,f'Your account has been created,you can now login')
-            return redirect('login')
+            return redirect('adminloginform')
     else:
         form = CustomUserCreationForm()
        # profileform=ProfileForm()
-    return render(request, 'users/register.html', {'form':form})
+    return render(request, 'users/student_registration.html', {'form':form})
 
 
-
-def Dashboard(request):
-    return render(request,'users/dashboard.html')
 
 
 from django.shortcuts import render
@@ -92,6 +89,56 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/student_home')
     return render(request, 'users/student login.html')
+
+@login_required
+def profile(request):
+    return render(request,'users/studentprofile.html')
+
+@login_required
+def editstudentprofile(request):
+    if request.method== 'POST':
+        form = edit_studentprofile(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('studentprofile')
+    else:
+        form = edit_studentprofile( instance=request.user)
+        args={'form':form}
+        return render(request,'users/editstudentprofile.html',args)
+@login_required
+def change_password(request):
+    if request.method== 'POST':
+        form= PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request,form.user)
+            return redirect('studentprofile')
+        else:
+            return redirect('student_change_password')
+    else:
+        form= PasswordChangeForm(user=request.user)
+        args={'form':form}
+        return render(request,'users/change_password.html',args)
+
+def password_reset(request):
+    if request.method=='POST':
+        form= PasswordResetForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('password_reset_done')
+    else:
+        form= PasswordResetForm()
+        args={'form':form}
+        return render(request,'user/password_reset.html',args)
+
+
+
+
+
+
 

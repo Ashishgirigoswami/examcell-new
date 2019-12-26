@@ -1,0 +1,5 @@
+<ul>
+    {%  for user in filter.qs %}
+    <a>{{ user.subject_name}} - <a href="{{ user.pdf.url }}" class="btn btn-primary btn-sm">download pdf</a> </a></li>
+    {% endfor %}
+  </ul>

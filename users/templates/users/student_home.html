@@ -1,0 +1,7 @@
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+ <p><a href="{% url 'studentprofile' %}">Profile</a></p>
+ <p><a href="{% url 'student_change_password' %}">Change password</a></p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% endif %}

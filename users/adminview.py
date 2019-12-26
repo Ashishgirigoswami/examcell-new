@@ -11,59 +11,38 @@ from django.http import *
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response,redirect
-from .forms import CustomUserCreationForm,ProfileForm
+from .forms import CustomUserCreationForm,edit_adminprofile,Department_form,Course_from,AssignFacultyform,Assignsemform
 from django.contrib.auth.models import Group
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from django.contrib.auth.forms import PasswordChangeForm,PasswordResetForm
 from django.core.mail import EmailMessage
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model,update_session_auth_hash
+from django.shortcuts import render
+from .filters import UserFilter,departmentFilter,courseFilter,assignedFilter
+from .models  import Department,Course,AssignFaculty,Assignsubtosem
 
 User = get_user_model()
 
-def register(request):
-    if request.method=='POST':
-        form= CustomUserCreationForm(request.POST)
-        profileForm = ProfileForm(request.POST)
+@login_required
+def profile(request):
+    return render(request,'users/userprofile.html')
+
+@login_required
+def edit_profile(request):
+    if request.method== 'POST':
+        form= edit_adminprofile(request.POST,instance=request.user)
+
         if form.is_valid():
-
-            user=form.save(commit=False)
-            user.is_active = False
-            user.save()
-            current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
-            message = render_to_string('users/accountactivate.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            to_email = form.cleaned_data.get('email')
-            email = EmailMessage(
-                mail_subject, message, to=[to_email]
-            )
-            email.send()
-            return HttpResponse('Please confirm your email address to complete the registration')
-            #profileform.save()
-            group = Group.objects.get(name='student')
-            user.groups.add(group)
-            #username=form.cleaned_data.get('username')
-            messages.success(request,f'Your account has been created,you can now login')
-            return redirect('login')
+            form.save()
+            return redirect('adminprofile')
     else:
-        form = CustomUserCreationForm()
-       # profileform=ProfileForm()
-    return render(request, 'users/register.html', {'form':form})
+        form= edit_adminprofile(instance=request.user)
+        args={'form':form}
+        return render(request,'users/editadminprofile.html',args)
 
-
-
-def Dashboard(request):
-    return render(request,'users/dashboard.html')
-
-
-from django.shortcuts import render
 
 def activate(request, uidb64, token):
     try:
@@ -92,6 +71,115 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/admin_home')
     return render(request, 'users/admin login.html')
+
+@login_required
+def change_password(request):
+    if request.method== 'POST':
+        form= PasswordChangeForm(data=request.POST, user=request.user)
+
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request,form.user)
+            return redirect('adminprofile')
+        else:
+            return redirect('change_password')
+    else:
+        form= PasswordChangeForm(user=request.user)
+        args={'form':form}
+        return render(request,'users/change_password.html',args)
+
+def password_reset(request):
+    if request.method=='POST':
+        form= PasswordResetForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('password_reset_done')
+    else:
+        form= PasswordResetForm()
+        args={'form':form}
+        return render(request,'users/password_reset.html',args)
+
+@login_required
+def studentsearch(request):
+        user_list = User.objects.filter(groups__name='student')
+        user_filter = UserFilter(request.GET, queryset=user_list)
+        return render(request, 'users/student_list.html', {'filter': user_filter})
+
+@login_required
+def facultysearch(request):
+        user_list = User.objects.filter(groups__name='faculty')
+        user_filter = UserFilter(request.GET, queryset=user_list)
+        return render(request, 'users/faculty_list.html', {'filter': user_filter})
+
+
+@login_required()
+def add_department(request):
+    department_list = Department.objects.all()
+    user_filter = departmentFilter(request.GET, queryset=department_list)
+
+    if request.method=='POST':
+        form= Department_form(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('Department')
+    else:
+        form= Department_form()
+        args={'form':form,'filter': user_filter}
+        return render(request,'users/add_department.html',args)
+
+
+@login_required()
+def add_course(request):
+    course_list = Course.objects.all()
+    user_filter = courseFilter(request.GET, queryset=course_list)
+    if request.method=='POST':
+        form= Course_from(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Course')
+    else:
+        form= Course_from()
+        args={'form':form,'filter': user_filter}
+        return render(request,'users/add_course.html',args)
+
+
+@login_required()
+def assign_Course(request):
+    course_list = AssignFaculty.objects.all()
+    user_filter = assignedFilter(request.GET, queryset=course_list)
+    if request.method=='POST':
+        form= AssignFacultyform(request.POST,)
+
+        if form.is_valid():
+            form.save()
+            return redirect('assign_course')
+        else:
+         return HttpResponse('course is already assigned to faculty!!!!')
+    else:
+        form= AssignFacultyform()
+        args={'form':form,'filter': user_filter}
+        return render(request,'users/assign_course.html',args)
+
+@login_required()
+def assign_Semester(request):
+
+    if request.method=='POST':
+        form= Assignsemform(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('assign_semester')
+        else:
+         return HttpResponse('course is already assigned to faculty!!!!')
+    else:
+        form= Assignsemform()
+        args={'form':form,}
+        return render(request,'users/assign_semester.html',args)
+
+
+
 

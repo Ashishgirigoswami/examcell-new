@@ -1,0 +1,189 @@
+{% load static%}
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+	<title>Anand login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static '/icons/favicon.ico'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/Linearicons-Free-v1.0.0/icon-font.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animsition/css/animsition.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/daterangepicker/daterangepicker.css'%}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css'%}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}">
+<!--===============================================================================================-->
+
+ <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="icon" href="{% static 'img/favicon.png'%}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}">
+    <!-- animate CSS -->
+    <link rel="stylesheet" href="{% static 'css/animate.css'%}">
+    <!-- owl carousel CSS -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css'%}">
+    <!-- themify CSS -->
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css'%}">
+    <!-- nice select CSS -->
+    <link rel="stylesheet" href="{% static 'css/nice-select.css'%}">
+    <!-- font awesome CSS -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css'%}">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+</head>
+<body>
+
+
+    <header class="main_menu home_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                   <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html"> <img src="{% static 'img\OKPC.png'%}" alt="logo" > </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <div class="collapse navbar-collapse main-menu-item justify-content-center"
+                            id="navbarSupportedContent">
+
+                            <ul class="navbar-nav align-items-center">
+                                <ul class="navbar-nav align-items-center">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'base' %}">Home</a>
+                                </li>
+
+								 <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'adminloginform' %}">Admin</a>
+                                </li>
+
+								<li class="nav-item">
+                                    <a class="nav-link" href="{%url 'studentloginform' %}">Student</a>
+                                </li>
+
+								<li class="nav-item">
+                                    <a class="nav-link" href="{%url 'facultyloginform' %}">faculty</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'aboutus' %}">About</a>
+                                </li>
+								</ul></ul>
+                        </div>
+
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'images/bg-01.jpg' %});">
+					<span class="login100-form-title-1">
+						Teachers Registration
+					</span>
+				</div>
+
+<div class = "content-section">
+        <form class="login100-form validate-form" name="teacherRegisterForm" action="/teacher_registration/" method="post">
+        {%csrf_token %}
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100" for="username">Username</span>
+			            {{form.username}}
+                        {{form.username.errors}}
+						<span class="focus-input100"></span>
+					</div>
+
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100" for="email">email</span>
+						{{form.email}}
+                        {{form.email.errors}}
+            <span class="focus-input100"></span>
+					</div>
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100" for="first_name">First name</span>
+
+						{{form.first_name}}
+            <span class="focus-input100"></span>
+					</div>
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100" for="last_name">Last name</span>
+						{{form.last_name}}
+            <span class="focus-input100"></span>
+					</div>
+
+
+        <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100" for="mobile_no">Mobile NO</span>
+						{{form.mobile_no}}
+            <span class="focus-input100"></span>
+					</div>
+            <div class="wrap-input100 validate-input m-b-26">
+                                <div class="input-group">
+                                    <span class="label-input100" for="Student_id">Gender</span>
+                                    <div class="rs-select2 js-select-simple select--no-search">
+                                        {{form.gender}}
+                                        <div class="select-dropdown"></div>
+                                    </div>
+                                </div>
+                            </div>
+                <div class="wrap-input100 validate-input m-b-26">
+
+
+                        <div class="input-group">
+                            <div class="rs-select2 js-select-simple select--no-search">
+                                <span class="label-input100" for="Student_id">department</span>
+                                {{form.department}}
+                                <div class="select-dropdown"></div>
+                            </div>
+                        </div>
+                </div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100" for="password1">Password</span>
+						{{form.password1}}
+                        <span class="focus-input100"></span>
+					</div>
+                <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100" for="password2"> Confirm Password</span>
+						{{form.password2}}
+                        {{form.password2.errors}}
+                        <span class="focus-input100"></span>
+					</div>
+
+            <button class="btn btn-outline-info" type="submit" >Sign UP</button>
+    </form>
+</div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already have account ? <a class="ml-2"href="{% url 'facultyloginform' %}">Signin</a>
+        </small>
+    </div>
+</div>
+
+            </div>
+        </div>
+        </div>
+    </header>

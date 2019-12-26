@@ -1,0 +1,10 @@
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+ <p><a href="{% url 'facultyprofile' %}">Profile</a></p>
+<p><a href="{% url 'faculty_change_password' %}">Change_password</a></p>
+<p><a href="{% url 'assigned_subject' %}">Assigned subject</a></p>
+<p><a href="{% url 'marks_upload' %}">upload Subject marks</a></p>
+<p><a href="{% url 'marks_pdf' %}">uploaded  marks</a></p>
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% endif %}

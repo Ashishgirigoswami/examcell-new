@@ -11,7 +11,7 @@ from django.http import *
 from django.shortcuts import render_to_response,redirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response,redirect
-from .forms import CustomUserCreationForm,ProfileForm
+from .forms import CustomUserCreationForm
 from django.contrib.auth.models import Group
 from django.template.loader import render_to_string
 from django.contrib.sites.shortcuts import get_current_site
@@ -32,6 +32,8 @@ def register(request):
             user=form.save(commit=False)
             user.is_active = False
             user.save()
+            group = Group.objects.get(name='group_name')
+            user.groups.add(group)
             current_site = get_current_site(request)
             mail_subject = 'Activate your blog account.'
             message = render_to_string('users/accountactivate.html', {
@@ -47,8 +49,6 @@ def register(request):
             email.send()
             return HttpResponse('Please confirm your email address to complete the registration')
             #profileform.save()
-            group = Group.objects.get(name='student')
-            user.groups.add(group)
             #username=form.cleaned_data.get('username')
             messages.success(request,f'Your account has been created,you can now login')
             return redirect('login')
@@ -59,8 +59,6 @@ def register(request):
 
 
 
-def Dashboard(request):
-    return render(request,'users/dashboard.html')
 
 
 from django.shortcuts import render

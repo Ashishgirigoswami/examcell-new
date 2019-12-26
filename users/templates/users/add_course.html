@@ -1,0 +1,10 @@
+ <form method="post">
+     {%csrf_token %}
+    {{form.as_p }}
+    <button type="submit">add course</button>
+  </form>
+<ul>
+    {%  for user in filter.qs %}
+    <li>{{ user.Course_name}} - {{ user.Course_code }}</li>
+    {% endfor %}
+  </ul>

@@ -1,0 +1,5 @@
+<ul>
+    {%  for user in filter.qs %}
+    <li>{{ user.faculty}} - {{ user.course_name }}</li>
+    {% endfor %}
+  </ul>
