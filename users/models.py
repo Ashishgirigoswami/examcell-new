@@ -66,6 +66,8 @@ class Assignsubtosem(models.Model):
 
 
 class marks_upload(models.Model):
+    Semester = models.ForeignKey(Semester, on_delete=models.CASCADE, )
+    Department = models.ForeignKey(Department, on_delete=models.CASCADE, )
     subject_name= models.OneToOneField(AssignFaculty,on_delete=models.CASCADE)
     pdf=models.FileField(upload_to='documents/')
 

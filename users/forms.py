@@ -160,7 +160,7 @@ class marksupload(forms.ModelForm):
 
     class Meta():
         model= marks_upload
-        fields=('subject_name','pdf')
+        fields=('Semester','Department','subject_name','pdf',)
 
 class Assignsemform(forms.ModelForm):
     Semester = forms.ModelChoiceField(queryset=Semester.objects.all())

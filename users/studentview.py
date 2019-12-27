@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.shortcuts import render
 #from django.contrib.auth.models import User
 from .tokens import account_activation_token
+from django.contrib.sessions.models import Session
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
@@ -19,9 +20,12 @@ from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode,urlsafe_base64_decode
 from django.contrib.auth.forms import PasswordChangeForm,PasswordResetForm
 from django.core.mail import EmailMessage
+from .models import Assignsubtosem,marks_upload
+from .filters import subFilter
 from django.contrib.auth import get_user_model,update_session_auth_hash
 
 User = get_user_model()
+
 
 def register(request):
     if request.POST:
@@ -59,7 +63,9 @@ def register(request):
 
 
 
-
+def user_log(request):
+    user=request.user
+    return user
 from django.shortcuts import render
 
 def activate(request, uidb64, token):
@@ -89,6 +95,7 @@ def login_user(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
+                Session.user=request.user
                 return HttpResponseRedirect('/student_home')
     return render(request, 'users/student login.html')
 
@@ -136,7 +143,12 @@ def password_reset(request):
         args={'form':form}
         return render(request,'user/password_reset.html',args)
 
+@login_required
+def assigned_subjects(request):
 
+    course_list = marks_upload.objects.filter(Semester= request.user.Semester)
+    user_filter = subFilter(request.GET, queryset=course_list)
+    return render(request, 'users/subject_marks.html', {'filter': user_filter})
 
 
 

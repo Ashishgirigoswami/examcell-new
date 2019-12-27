@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 import django_filters
-from .models import  CustomUser,Department,Course,AssignFaculty,marks_upload
+from django.contrib.sessions.models import Session
+from .models import  CustomUser,Department,Course,AssignFaculty,marks_upload,Assignsubtosem
 
 class UserFilter(django_filters.FilterSet):
     class Meta:
@@ -24,3 +25,10 @@ class pdfFilter(django_filters.FilterSet):
     class Meta:
         model = marks_upload
         fields = [ 'subject_name' ]
+
+
+class subFilter(django_filters.FilterSet):
+    class Meta:
+        model = marks_upload
+        fields = [ 'subject_name' ]
+

@@ -46,6 +46,7 @@ urlpatterns = [
     path('assign_course/',av.assign_Course, name='assign_course'),
     path('marks_upload/',fv.marks_Upload,name='marks_upload'),
     path('marks_pdf/',fv.assigned_pdf,name='marks_pdf'),
+    path('Subjects/',sv.assigned_subjects,name='subjects'),
     path('assign_sem/',av.assign_Semester, name='assign_semester'),
     path('assigned_subject/',fv.assigned_subject, name='assigned_subject'),
     path('users/', include('django.contrib.auth.urls')),

@@ -1,4 +1,3 @@
-
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
  <p><a href="{% url 'adminprofile' %}">Profile</a></p>
@@ -8,6 +7,6 @@
 <p><a href="{% url 'Course' %}">Course</a></p>
 <p><a href="{% url 'Department' %}">Department</a></p>
 <p><a href="{% url 'assign_course' %}">assign course to faculty</a></p>
-<p><a href="{% url 'assign_semester' %}">assign course to faculty</a></p>
+<p><a href="{% url 'assign_semester' %}">assign Semester to subject</a></p>
   <p><a href="{% url 'logout' %}">logout</a></p>
 {% endif %}
