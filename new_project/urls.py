@@ -51,7 +51,7 @@ urlpatterns = [
     path('assigned_subject/',fv.assigned_subject, name='assigned_subject'),
     path('users/', include('django.contrib.auth.urls')),
     path('admin_home', TemplateView.as_view(template_name='admin_home.html'), name='adminhome'),
-    path('student_home', TemplateView.as_view(template_name='student_home.html'), name='stundentyhome'),
+    path('student_home', TemplateView.as_view(template_name='student_home.html'), name='studenthome'),
     path('faculty_home', TemplateView.as_view(template_name='faculty_home.html'), name='facultyhome'),
     path('', TemplateView.as_view(template_name='index.html'), name='base'),
     path('aboutus/', TemplateView.as_view(template_name='about.html'), name='aboutus'),

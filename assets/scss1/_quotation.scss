@@ -1,0 +1,151 @@
+.quotation_area{
+    padding: 120px 0;
+    position: relative;
+    &.ex_margin{
+        margin-bottom: 180px;
+        @media #{$mobile_device}{
+            margin-bottom: 80px;
+        }
+    }
+    @media #{$mobile_device}{
+        padding: 80px 0;
+    }
+    &::before{
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        right: 0;
+        bottom: 0;
+        background-image: url(../img/banner/quotation_bg.png);
+        background-repeat: no-repeat;
+        content: '';
+        background-size: cover;
+    }
+    .quotation_text{
+        border: 1px solid #f1f1f1;
+        padding: 80px 90px;
+        
+        background: rgba(255,255,255,.9);
+        @media #{$mobile_device}{
+            padding: 30px;
+            display: block  !important;
+        }
+        @media #{$tablet_device}{
+            padding: 30px 40px;
+        }
+        .quotation_info{
+            h3{
+                font-size: 48px;
+                color: #000000;
+                line-height: 58px;
+                text-transform: uppercase;
+                font-weight: 400;
+                margin-bottom: 0;
+                @media #{$mobile_device}{
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+                @media #{$tablet_device}{
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+            }
+            p{
+                font-size: 16px;
+                color: #484848;
+                font-weight: 300;
+                margin-top: 5px;
+                margin-bottom: 55px;
+            @media #{$mobile_device}{
+                margin-bottom: 30px;
+            }
+            }
+            a{
+
+            }
+        }
+        .sayhello{
+            @media #{$mobile_device}{
+                // display: block !important;
+                margin-top: 20px;
+            }
+            .icon{
+                i{
+                    width: 70px;
+                    height: 70px;
+                    @include border-radius(50%);
+                    border: 1px solid #cccccc;
+                    color: #FE3F3F;
+                    text-align: center;
+                    line-height: 70px;
+                    font-size: 36px;
+
+                    @media #{$mobile_device}{
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        font-size: 15px;
+                    }
+                }
+            }
+            .num{
+                padding-left: 40px;
+                @media #{$mobile_device}{
+                    padding-left: 20px;
+                }
+                span{
+                    display: block;
+                    font-size: 16px;
+                    margin-bottom: 0px;
+                    text-transform: capitalize;
+                    font-family: $font2;
+                }
+                h3{
+                    font-size: 40px;
+                    font-weight: 700;
+                    color: #ff2424;
+                    line-height: 1;
+                    margin-top: 7px;
+                    @media #{$tablet_device}{
+                        font-size: 20px;
+                    }
+                    @media #{$mobile_device}{
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.property_certificates{
+    .section_title{
+       
+        @media #{$mobile_device} {
+            margin-bottom: 30px;
+        }
+        @media #{$tablet_device} {
+            margin-bottom: 40px;
+        }
+    }
+    .certificate_listing {
+        @media #{$mobile_device}{
+            display: block !important;
+        }
+        .single_list{
+            @media #{$mobile_device}{
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .thumb{
+                img{
+                    @media #{$mobile_device}{
+                        width: auto;
+                    }
+                }
+            }
+        }
+
+    }
+}

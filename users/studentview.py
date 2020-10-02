@@ -110,7 +110,7 @@ def editstudentprofile(request):
 
         if form.is_valid():
             form.save()
-            return redirect('studentprofile')
+            return redirect('studenthome')
     else:
         form = edit_studentprofile( instance=request.user)
         args={'form':form}
@@ -123,13 +123,13 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request,form.user)
-            return redirect('studentprofile')
+            return redirect('studenthome')
         else:
             return redirect('student_change_password')
     else:
         form= PasswordChangeForm(user=request.user)
         args={'form':form}
-        return render(request,'users/change_password.html',args)
+        return render(request,'users/student_change_password.html',args)
 
 def password_reset(request):
     if request.method=='POST':

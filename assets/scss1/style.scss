@@ -1,0 +1,56 @@
+
+@import 'varriable.scss';
+@import 'mixins.scss';
+@import 'extend';
+@import 'responsive.scss';
+@import 'theme-default.scss';
+@import 'btn';
+@import 'section_title';
+@import 'slick-nav.scss';
+
+
+
+// header
+@import 'header';
+
+// slider
+@import 'slider';
+
+@import '_about';
+
+// _news
+@import '_news';
+
+@import '_facilites';
+
+@import '_appetment';
+
+
+// about
+@import 'footer';
+
+@import 'bradcam';
+
+@import 'service';
+
+@import '_testmonial';
+
+
+@import '_quotation.scss';
+
+
+// other pages default
+
+// contact
+@import 'contact';
+
+// elements
+@import 'elements.scss';
+
+// blog
+@import 'blog';
+
+
+// blog part
+@import 'blog_part';
+

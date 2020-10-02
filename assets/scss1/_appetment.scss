@@ -1,0 +1,138 @@
+.appertment_area{
+    padding-top: 180px;
+    padding-bottom: 180px;
+    @media #{$mobile_device}{
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .single_appertment{
+        position: relative;
+        z-index: 2;
+        &::before{
+           @extend %overly_1;
+           position: absolute;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           content: '';
+           z-index:1 ;
+        }
+        .thumb{
+            overflow: hidden;
+            img{
+                width: 100%;
+                @include  transform(scale(1));
+                @include transition(.3s);
+            }
+        }
+        .appertment_info{
+            position: absolute;
+            left: 30px;
+            bottom: 30px;
+            z-index: 5;
+            span{
+                font-size: 25px;
+                color: #fff;
+                font-weight: 400;
+            }
+            h5{
+                font-size: 20px;
+                font-weight: 300;
+                text-transform: uppercase;
+                color: #fff;
+                margin-top: 17px;
+                margin-bottom: 18px;
+                font-family: $font2;
+            }
+            ul{
+                li{
+                    display: inline-block;
+                    font-size: 20px;
+                    color: #fff;
+                    font-weight: 300;
+                    padding-right: 20px;
+                    margin-right: 20px;
+                    position: relative;
+                    font-family: $font2;
+                    &:last-child{
+                        &::before{
+                            display: none;
+                        }
+                    }
+                    &::before{
+                        position: absolute;
+                        right: 0;
+                        background: #8a8a88;
+                        height: 20px;
+                        width: 1px;
+                        content: '';
+                        top: 50%;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+        }
+        &:hover{
+            .thumb{
+                img{
+                    @include  transform(scale(1.1));
+                }
+            }
+        }
+    }
+    &.appertment_area2{
+        .single_appertment{
+            .appertment_info{
+                position: absolute;
+                left: 30px;
+                bottom: 25px;
+                z-index: 5;
+                span{
+                    font-size: 16px;
+                    color: #fff;
+                    font-weight: 400;
+                }
+                h5{
+                    font-weight: 300;
+                    text-transform: uppercase;
+                    color: #fff;
+                    margin-top: 9px;
+                    margin-bottom: 7px;
+                    font-size: 14px;
+                }
+                ul{
+                    li{
+                        display: inline-block;
+                        font-size: 14px;
+                        color: #fff;
+                        font-weight: 300;
+                        padding-right: 20px;
+                        margin-right: 20px;
+                        position: relative;
+                        &:last-child{
+                            &::before{
+                                display: none;
+                            }
+                        }
+                        &::before{
+                            position: absolute;
+                            right: 0;
+                            background: #8a8a88;
+                            height: 20px;
+                            width: 1px;
+                            content: '';
+                            top: 50%;
+                            transform: translateY(-50%);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.mb-30{
+    margin-bottom: 30px;
+}

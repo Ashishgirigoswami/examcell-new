@@ -1,0 +1,90 @@
+
+.testimonial_area{
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding: 0px 0 200px 0;
+    @media #{$mobile_device} {
+        padding: 0px 0 50px 0;
+        margin-bottom: 30px;
+    }
+    .single_testmonial{
+        margin-bottom: 20px;
+        p{
+            color: #282828;
+            font-weight: 300;
+            font-size: 24px;
+            line-height: 40px;
+            margin: 0;
+            font-style: italic;
+            margin-bottom: 40px;
+        }
+        .author_thumb{
+            width: 130px;
+            height: 130px;
+            @include border-radius(50%);
+            margin: auto;
+            margin: auto auto 15px auto;
+            position: relative;
+            img{
+                width: 100% !important;
+            }
+            &::before{
+                position: absolute;
+                right: 22px;
+                bottom: -14px;
+                content: "\f100"; 
+                font-family: "Flaticon";
+                color: #ff2424;
+                font-size: 30px;
+            }
+        }
+        .testmonial_author{
+            margin-bottom: 45px;
+            margin-top: 1px;
+            h3{
+                color: #7A838B;
+                font-size: 20px;
+                font-weight: 500;
+                color: #3f4451;
+                margin-bottom: 1px;
+            } 
+            span{
+                font-size: 14px;
+                font-weight: 300;
+                color: #707b8e;
+                font-family: $font2;
+            }
+        }
+    }
+    .owl-carousel .owl-item img {
+        display: inline-block;
+        width: 100%;
+    }
+    .owl-carousel .owl-nav div.owl-next {
+        left: auto;
+        right: 0;
+    }
+    .owl-carousel .owl-nav div {
+        left: 0;
+    }
+    .owl-dots {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+
+        .owl-dot {
+            width: 8px;
+            height: 8px;
+            background: #c0c0c0;
+            display: inline-block;
+            border-radius: 50%;
+            margin: 0 5px;
+            &.active{
+                background: #303030;
+            }
+        }
+    }
+}

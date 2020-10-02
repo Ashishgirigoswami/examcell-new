@@ -159,7 +159,7 @@ def marks_Upload(request):
 
         if form.is_valid():
             form.save()
-            return redirect('marks_upload')
+            return redirect('facultyhome')
         else:
             return redirect('marks_upload')
     else:

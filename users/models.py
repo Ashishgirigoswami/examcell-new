@@ -31,6 +31,7 @@ class CustomUser(AbstractUser):
     Semester=models.ForeignKey(Semester,on_delete=models.CASCADE,null=True)
     gender=models.CharField(max_length=8,blank=True)
     mobile_no=models.CharField(max_length=10,blank=True)
+    #session = models.charField(max_lenght=10,black=True)
 
 
 class Course(models.Model):

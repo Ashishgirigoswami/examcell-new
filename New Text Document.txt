@@ -1,0 +1,20 @@
+<div class="main">
+
+    <div class="container">
+    <h3 style="text-align:center">Upload marks</h3>
+
+    <div class="container">
+    <form  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label >Semester</label>
+    {{ form.Semester }}
+    <label >Department</label>
+    {{ form.Department}}
+    <label >Subject</label>
+    {{ form.subject_name }}
+        <label >PDF</label>
+    {{ form.Pdf }}
+        <button  type="submit">Submit</button>
+    </form>
+    <br>
+</div>

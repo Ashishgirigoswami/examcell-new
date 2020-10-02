@@ -61,17 +61,23 @@ class CustomUserCreationForm(UserCreationForm):
 
 
 class edit_adminprofile(UserChangeForm):
+    email = forms.EmailField(max_length=30, widget=forms.TextInput
+    (attrs={'class': 'input100', }))
     class Meta:
         model = CustomUser
         fields = ('email', 'first_name','last_name','mobile_no','password')
 
 class edit_studentprofile(UserChangeForm):
+    email = forms.EmailField(max_length=30, widget=forms.TextInput
+    (attrs={'class': 'input100',}))
     department = forms.ModelChoiceField(queryset=Department.objects.all())
     Semester = forms.ModelChoiceField(queryset=Semester.objects.all())
     class Meta:
         model = CustomUser
         fields = ('email', 'first_name', 'last_name', 'mobile_no','Student_id','Semester','department',)
 class edit_faculty_profile(UserChangeForm):
+    email = forms.EmailField(max_length=30, widget=forms.TextInput
+    (attrs={'class': 'input100', }))
     department = forms.ModelChoiceField(queryset=Department.objects.all())
     Semester = forms.ModelChoiceField(queryset=Semester.objects.all())
     class Meta:

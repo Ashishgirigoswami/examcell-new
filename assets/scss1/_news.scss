@@ -1,0 +1,109 @@
+.our_latest_news_area{
+    padding-top: 180px;
+    padding-bottom: 150px;
+    @media #{$mobile_device} {
+        padding-top: 50px;
+        padding-bottom: 30px;
+    }
+    .single_news{
+        margin-bottom: 30px;
+        .thumb{
+            img{
+                width: 100%;
+            }
+        }
+        .news_info{
+            @media #{$mobile_device}{
+                display: block !important;
+            }
+            
+            .date{
+                width: 98px;
+                text-align: center;
+                background:#ff2424;
+                padding: 21px 23px;
+                height: 86px;
+                position: relative;
+                margin-top: 30px;
+                @media #{$mobile_device}{
+                    margin-top: -86px;
+                    position: relative;
+                }
+                p{
+                    color: #fff;
+                    font-size: 16px;
+                    font-family: $font2;
+                    font-weight: 400;
+                    line-height: 1;
+                    span{
+                        font-size: 25px;
+                        font-family: $font2;
+                        color: #fff;
+                        font-weight: 500;
+                    }
+                }
+            }
+            .news_meta{
+                float: right;
+                background: #fff;
+                margin-left: 35px;
+                padding: 40px;
+                border: 1px solid #f7f7f7;
+                position: relative;
+                margin-top: -45px;
+                @media #{$mobile_device}{
+                    margin-top: 0;
+                    padding-left: 0;
+                    margin-left: 0;
+                }
+                span{
+                    font-size: 14px;
+                    color: #707b8e;
+                    font-weight: 400;
+                    position: relative;
+                    display: block;
+                    padding-left: 15px;
+                    &::before{
+                        position: absolute;
+                        height: 12px;
+                        width: 2px;
+                        content: '';
+                        left: 0;
+                        top: 50%;
+                        @include transform(translateY(-50%));
+                        background: #838d9d;
+                    }
+                }
+                h3{
+                    font-size: 24px;
+                    color:#282828;
+                    line-height: 35px;
+                    text-transform: uppercase;
+                    margin-bottom: 27px;
+                    margin-top: 0;
+                    font-weight: 500;
+                    font-family: $font2;
+                    @include transition(.3s);
+                    &:hover{
+                        color: $btn-bg;
+                    }
+                }
+                a.read_more{
+                    font-size: 14px;
+                    color: #3a3a3a;
+                    font-weight: 400;
+                    text-transform: uppercase;
+                    display: inline-block;
+                    &:hover{
+                        color: $btn-bg;
+                    }
+                    i{
+                        position: relative;
+                        font-size: 14px;
+                        top: -1px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -111,7 +111,9 @@ def studentsearch(request):
 @login_required
 def facultysearch(request):
         user_list = User.objects.filter(groups__name='faculty')
+        print(type(user_list))
         user_filter = UserFilter(request.GET, queryset=user_list)
+        print(type(user_filter))
         return render(request, 'users/faculty_list.html', {'filter': user_filter})
 
 

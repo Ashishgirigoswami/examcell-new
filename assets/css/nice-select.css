@@ -1,6 +1,6 @@
 .nice-select {
   -webkit-tap-highlight-color: transparent;
-  background-color: #fff;
+  background-color: #FFA500;
   border-radius: 5px;
   border: solid 1px #e8e8e8;
   box-sizing: border-box;
@@ -123,10 +123,10 @@
     -webkit-transition: all 0.2s;
     transition: all 0.2s; }
     .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus {
-      background-color: #f6f6f6; }
+      background-color: #FFA500; }
     .nice-select .option.selected {
       font-weight: bold; }
-    .nice-select .option.disabled {
+    .nice-select .option.enabled {
       background-color: transparent;
       color: #999;
       cursor: default; }

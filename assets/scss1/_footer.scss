@@ -1,0 +1,204 @@
+.footer_bg_1{
+    background-image: url(../img/banner/footer_bg.png);
+}
+.footer{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    p{
+        font-family: $font2 !important;
+    }
+    .footer_top{
+        padding-top: 145px;
+        padding-bottom: 119px;
+        @media #{$mobile_device} {
+            padding-top: 60px;
+            padding-bottom: 30px;
+        }
+        .footer_widget{
+            margin-bottom: 40px;
+            .footer_title{
+                font-size: 20px;
+                font-weight: 500;
+                color: #FFFFFF;
+                text-transform: uppercase;
+                margin-bottom: 30px;
+                font-family: $font1;
+                @media #{$mobile_device} {
+                    margin-bottom: 20px;
+                }
+            }
+            .footer_logo{
+                font-size: 22px;
+                font-weight: 400;
+                color: #FFFFFF;
+                text-transform: capitalize;
+                margin-bottom: 0;
+                margin-top: 40px;
+                @media #{$mobile_device} {
+                    margin-top: 20px;
+                }
+            }
+            p {
+
+                color: #888888 ;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 27px;
+                a{
+                    color: #888888 ;
+                    &:hover{
+                        color: #FFFFFF;
+                    }
+                }
+            
+            }
+            p.footer_text{
+                font-size: 16px;
+                color: $btn_bg;
+                margin-bottom: 23px;
+                font-weight: 400;
+                line-height: 28px;
+                a.domain{
+                    color: $btn_bg;
+                    font-weight: 400;
+                    &:hover{
+                        color: #FFFFFF;
+                        border-bottom: 1px solid #FFFFFF
+                    }
+                }
+                &.doanar{
+                    a{
+                    font-weight: 500;
+                    color: $btn_bg;
+                    
+                    &:hover{
+                        color: #FFFFFF;
+                        border-bottom: 1px solid #FFFFFF
+                    }
+                    &.first{
+                        margin-bottom: 10px;
+                    }
+                    }
+
+                }
+            }
+            ul{
+                li{
+                    color:#888888;
+                    font-size: 14px;
+                    line-height: 27px;
+                    a{
+                        color: #888888 ;
+                        font-weight: 400;
+                        font-family: $font2;
+                        &:hover{
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+            .newsletter_form{
+                position: relative;
+                margin-bottom: 20px;
+                input{
+                    width: 100%;
+                    height: 40px;
+                    background: #fff;
+                    padding-left: 20px;
+                    font-size: 13px;
+                    color: #000;
+                    border: none;
+                    border: 1px solid transparent;
+                    border-radius: 5px;
+                    font-family: $font2;
+                    &::placeholder{
+                        font-size: 13px;
+                        color: #AAB1B7 ;
+                        font-family: $font2;
+                    }
+                    &:focus{
+                        outline: none;
+                    }
+                }
+                button{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    height: 40px;
+                    border: none;
+                    font-size: 14px;
+                    color: #fff;
+                    background: $btn_bg;
+                    padding: 10px;
+                    padding: 0 22px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    top: 0px;
+                    right: 0px;
+                    font-size: 13px;
+                    font-weight: 500;
+                    font-family: $font2;
+                }
+            }
+            .newsletter_text{
+                font-size: 14px;
+                color: #888888 ;
+                line-height: 26px;
+                margin-bottom: 46px;
+            }
+        }
+    }
+    .copy-right_text{
+        padding-bottom: 30px;
+        .footer_border{
+            border-top: 1px solid #373c47;
+            margin-bottom: 30px;
+        }
+        .copy_right{
+            font-size: 14px;
+            color: $font_8 ;
+            margin-bottom: 0;
+            font-weight: 400;
+            @media #{$mobile_device} {
+                font-size: 14px;
+            }
+            @media #{$tablet_device} {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            a{
+                color: $btn_bg;
+            }
+        }
+    }
+    .socail_links{
+        text-align: right;
+        @media #{$mobile_device} {
+            margin-top: 30px;
+            text-align: left;
+        }
+        @media #{$tablet_device} {
+            text-align: center;
+        }
+        ul{
+            li{
+                display: inline-block;
+                @include transition(.3s);
+                margin-left: 33px;
+                a{
+                    font-size: 14px;
+                    display: inline-block;
+                    color: #8d9096 !important;
+                    background: transparent;
+                    @include transition(.3s);
+                 
+                }
+                &:hover a{
+                    color: $btn_bg !important;
+                }
+            }
+        }
+    }
+}
